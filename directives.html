@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <!-- directive -->
+        <!-- fungsi2 yang udah dateng dari view nya -->
+        <!-- contoh if else -->
+        <!-- <div v-if="cekKondisi">
+            ini dia {{ biodata }}
+        </div>
+        <div v-else="cekKondisi">
+            ini else nya
+        </div> -->
+
+        <!-- contoh v-show -->
+        <div v-show="this.umur >= 21">
+            kamu sudah lewat 21 tahun keatas <br/> {{ biodata }}
+        </div>
+        
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <script>
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+                nama: "zernalda",
+                umur: 26,
+                cekKondisi:true
+                
+            },
+            
+            computed: {
+                biodata: {
+                    get: function(){
+                        return this.nama + " umurnya : " +this.umur
+                    },
+                    set: function(params){
+                        var cridential = params.split(' ')
+                        this.nama = cridential[0]
+                        this.umur = cridential[1]
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <!-- contoh 1 -->
+        <!-- {{ nama }} & {{ umur }} -->
+
+        <!-- contoh2 -->
+        {{ nama }} & {{ umur }}
+        <br/>
+        <!-- {{{ raw }}} -->
+
+        <!-- nambahin javascript expression -->
+        <!-- if laki -->
+        {{ laki? 'dia cowo' : 'dia perempuan' }}
+        <br/>
+        <!-- nambahin syntax js -->
+        {{ nama.split('').reverse().join('') }}
+
+
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <!-- contoh1 -->
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            // bikin key dan value
+            // key contoh "data" "method"
+
+            //ambil elemen dari ID
+            // contoh set dari elemen
+            el: "#app",
+            data: {
+                nama: "zernalda",
+                umur: 26,
+                // raw: "<p>aku</p>"
+
+                // tipe boolean
+                laki: true
+            },
+        });
+    </script>
+    <!-- contoh2 -->
+    
+</body>
+</html>

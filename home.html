@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <!-- contoh 1 -->
+        <!-- {{ nama }} & {{ umur }} -->
+
+        <!-- contoh2 -->
+        {{ nama }} & {{ umur }} & {{ email }}
+
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <!-- contoh1 -->
+    <!-- <script>
+        // bikin object vue
+        new Vue ({
+            // bikin key dan value
+            // key contoh "data" "method"
+
+            //ambil elemen dari ID
+            // contoh set dari elemen
+            el: "#app",
+            data: {
+                nama: "zernalda",
+                umur: 26
+            }
+        });
+    </script> -->
+    <!-- contoh2 -->
+    <script>
+    // bikin object data
+        var data = {
+            nama: "zernalda",
+            umur: 25,
+            email: "zernalda@gmail.com"
+        }
+        // bikin object vue
+        new Vue ({
+            el: "#app",
+            data: data
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        
+        <!-- {{ nama }} & {{ umur }} -->
+        <!-- contoh1 -->
+        {{ biodata }}
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <!-- contoh1 -->
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+                nama: "zernalda",
+                umur: 26
+                
+            },
+            // contoh1
+            // computed:{
+            //     comBiodata: function(){
+            //         return this.nama + " umurnya: " + this.umur
+            //     } 
+            // }
+            // contoh2
+            // bikin get dan set dari computed
+            computed: {
+                biodata: {
+                    get: function(){
+                        return this.nama + " umurnya : " +this.umur
+                    },
+                    // parameter param (penamaan bebas)
+                    // tujuannya agar bisa langsung ganti dengan memanggil object nya (biodata)
+                    set: function(params){
+                        var cridential = params.split(' ')
+                        this.nama = cridential[0]
+                        this.umur = cridential[1]
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

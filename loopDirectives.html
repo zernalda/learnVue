@@ -1,0 +1,55 @@
+<!-- contoh loop statis -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- 1 -->
+            <!-- <li v-for="member in members">
+                {{ member.nama }} __ {{ member.umur }}
+            </li> -->
+            <!-- 2 -->
+            <li v-for="(key, member) in members">
+                    {{ member }} - {{ key }}
+            </li>
+
+        </ul>
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <!-- contoh1 -->
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+                // 1
+                // contoh data array
+                // members: [
+                //     { nama: "zernalda", umur: 26 },
+                //     { nama: "ezaria", umur:18 },
+                //     { nama: "mama", umur:50 },
+                //     { nama: "papa", umur:53 },
+                // ]
+                //contoh data object 
+                members: {
+                    nama: "zernalda",
+                    umur: "26",
+                    email: "zernaldas@gmail.com"
+                }
+
+            },
+        });
+    </script>
+    <!-- contoh2 -->
+    
+</body>
+</html>
