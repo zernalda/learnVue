@@ -1,0 +1,52 @@
+<!-- contoh loop statis -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="member in members" track-by="id">
+                    {{ member.nama }} {{ member.id }}
+            </li>
+            <h2>ini yang pake filter</h2>
+            <li v-for="member in members">
+                {{ member.nama | uppercase | discount}}  {{ member.umur }}
+            </li>
+
+        </ul>
+    </div>
+        
+    
+    <script src="vue.min.js"></script>
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+                members: [
+                    { id: 1, nama: "zernalda", umur: 26 },
+                    { id: 2, nama: "ezaria", umur:18 },
+                    { id: 3, nama: "mama", umur:50 },
+                    { id: 4, nama: "papa", umur:53 },
+                ]
+            },
+            filters: {
+            uppercase: function (value) {
+                return value.toUpperCase()
+                },
+            discount: function (value) {
+                return value + "%"
+                }
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

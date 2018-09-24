@@ -1,0 +1,43 @@
+<!-- contoh loop statis -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+   <!-- implementasi input dan 2 way data binding -->
+    <div id="app">
+       <input type="checkbox" v-model="genre" value="cewe"> Laki
+       <input type="checkbox" v-model="genre" value="cowo"> Perempuan
+       <button type="submit" v-on:click="masuk">submit</button>
+       <!-- <p> {{ genre }} </p> -->
+    </div>
+          
+    <script src="vue.min.js"></script>
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+                // memberitahukan bahwa inputan type array
+                genre: []
+            },
+            methods: {
+                masuk: function(genre){
+                    console.log(genre)
+                }
+               }
+            
+        });
+
+    </script>
+
+
+    
+</body>
+</html>

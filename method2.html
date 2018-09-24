@@ -1,0 +1,47 @@
+<!-- contoh loop statis -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <!-- event dan method -->
+    <div id="app">
+        <!-- menggunakan event on:keyup -->
+        <input type="text" v-on:keyup="checks" >
+        <button v-on:click="boom2('text')">
+            Klik Me!
+        </button>
+
+    </div>
+          
+    <script src="vue.min.js"></script>
+    <script>
+        // bikin object vue
+        var vo = new Vue ({
+            
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+            //    parameter disimpan
+               boom2: function(text){
+                   alert('ini adalah isi parameter')
+               },
+               checks: function(){
+                   console.log('checks function')
+               }
+            }
+        });
+
+    </script>
+
+
+    
+</body>
+</html>
