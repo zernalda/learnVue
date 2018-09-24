@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vue.min.js"></script>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+    .fade-transition{
+        transition: opacity 1s ease;
+    }
+    .fade-enter, .fade-leave{
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    <h1>dynamic components</h1>
+    <!-- menampilkan template pertama apa yang akan di tampilkan "currentView" -->
+    <div id="app">
+        <ul>
+            <!-- menunjukan arah link ke currentView -->
+            <li>
+                <a href="#" @click="currentView='home'"> Home</a>  
+            </li>
+            <li>
+                <a href="#" @click="currentView='members'"> Members</a> 
+            </li>
+        </ul>
+        <!-- 'keep-alive' digunakan untuk nyimpen cache
+        tidak terus2an render ulang -->
+        <!-- transition untuk efect load masuk ke link -->
+        <component :is="currentView" class="animated" transition= "fade" transition-mode='out-in' keep-alive>
+        
+        </component>
+    </div>
+
+    <template id="home-template">
+        <h1>ini adalah home! </h1>
+    </template>
+
+    <template id="member-template">
+        <ul>
+            <!-- loop method -->
+            <li v-for='member in members'>
+                {{ member }}
+            </li>
+        </ul>
+    </template>
+
+    <script>
+
+    // Vue.transition('custom-fade', {
+    //     enterClass: 'bounceInDown',
+    //     leaveClass: 'fadeOutUp'
+    // })
+    
+    // membuat component
+    Vue.component('home', {
+        template: '#home-template'
+    });
+
+    Vue.component('members', {
+        template: '#member-template',
+        // menambahkan atribut data
+        data: function(){
+            return {
+                members: ['candidat1', 'candidat2', 'candidat3', 'candidat4']
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            currentView: 'home'
+        },
+        method: {}
+    });
+    </script>
+    
+</body>
+</html>

@@ -8,14 +8,46 @@
     <script src="vue.min.js"></script>
 </head>
 <body>
+    <h1>learn make components</h1>
     <div id="app">
-        <h1>learn make components</h1>
+        <!-- nama layout -->
+        <!-- // untuk mengoper data  -->
+        <template-baru :name='nama' :umur='umur'></template-baru>
     </div>
+
+    <!-- set template untuk di oper ke 'post-template' -->
+    <!-- panggil dengan <template-baru></template-baru> -->
+    <template id="post-template">
+         <div>
+             <ul>
+                 <li>{{ name }}</li>
+                 <li>{{ umur }}</li>
+             </ul>
+         </div>
+    </template>
+
     <script>
-        new Vue({
+        // define
+        // var templateBaru = Vue.extend({
+        //     template: '<h2>tempalate baru nih</h2>'
+        // })
+        // register
+        // (nama layout, nama var)
+        // Vue.component('template-baru', templateBaru)
+
+        // contoh define and register
+        // apa yang ditambahkan ke data harus di define ulang di 'template-baru'
+        Vue.component('template-baru', {
+            template: '#post-template',
+            props: ['name', 'umur']
+        });
+
+        // nambahin attribute message
+        var vo = new Vue({
             el: '#app',
             data: {
-
+                nama: 'zernalda',
+                umur: 10
             },
             methods: {
 
